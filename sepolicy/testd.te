@@ -12,7 +12,8 @@ allow recovery cryptfs_device:blk_file write;
 allow recovery self:capability2 sys_admin;
 allow recovery self:capability2 dac_override;
 allow recovery self:capability2 chown;
-
+allow recovery bin_file:file { execute open read getattr };
+allow recovery shell_exec:file { execute open read getattr };
 allow recovery device_mapper:chr_file { getattr open read write ioctl };
 allow recovery dm_ioctl:blk_file      { getattr open read write ioctl };
 allow recovery dm_ioctl:unix_dgram_socket { connectto };
