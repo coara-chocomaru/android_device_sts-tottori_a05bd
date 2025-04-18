@@ -30,4 +30,4 @@ auto                   vfat     /devices/platform/soc/11201000.usb*             
 /tee2                  emmc     /dev/block/platform/bootdevice/by-name/tee2         flags=backup=1
 /kb                    emmc     /dev/block/platform/bootdevice/by-name/kb           flags=backup=1
 /dkb                   emmc     /dev/block/platform/bootdevice/by-name/dkb          flags=backup=1
-/metadata              emmc     /dev/block/platform/bootdevice/by-name/metadata     flags=display=metadata;backup=1;mounttwrp=1
+/metadata              emmc     /dev/block/platform/bootdevice/by-name/metadata     flags=display=metadata;backup=1
