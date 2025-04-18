@@ -1,7 +1,14 @@
 type recovery, domain;
 type data_file, dir;
 type metadata_file, dir;
+type device, fs_type;
 
+allow recovery device:blk_file read;
+allow recovery device:blk_file getattr;
+type cryptfs_device, blk_file;
+label blk_file cryptfs_device;
+allow recovery cryptfs_device:blk_file read;
+allow recovery cryptfs_device:blk_file write;
 allow recovery self:capability2 sys_admin;
 allow recovery self:capability2 dac_override;
 allow recovery self:capability2 chown;
