@@ -3,10 +3,12 @@
 /vendor                ext4     /dev/block/platform/bootdevice/by-name/vendor       flags=ignoreblkid
 /vendor_image          emmc     /dev/block/platform/bootdevice/by-name/vendor       flags=display=vendor_image
 /dtbo                  emmc     /dev/block/platform/bootdevice/by-name/dtbo         flags=backup=1
-/data                  ext4     /dev/block/platform/bootdevice/by-name/userdata     flags=ignoreblkid;fileencryption=ice:aes-256-cts;mounttwrp=1
+/data  ext4  /dev/block/platform/bootdevice/by-name/userdata  
+    flags=display=userdata;ignoreblkid;encryptable=/dev/block/platform/bootdevice/by-name/metadata;
+          fileencryption=ice;mounttwrp=1;wait;check;quota;resize;reservedsize=128m;
+          fsflags=noatime,nosuid,nodev,noauto_da_alloc,discard
 /cache                 ext4     /dev/block/platform/bootdevice/by-name/cache        flags=backup=1
 /factory               ext4     /dev/block/platform/bootdevice/by-name/factory      flags=display=factory
-auto                   ext4     /dev/block/platform/bootdevice/by-name/userdata     flags=display=internalstorage;encryptable=/dev/block/platform/bootdevice/by-name/metadata;wait;check;quota;resize;reservedsize=128m;fsflags=noatime,nosuid,nodev,noauto_da_alloc,discard
 auto                   vfat     /devices/platform/soc/11230000.mmc*                 flags=display=auto
 auto                   vfat     /devices/platform/soc/11240000.mmc*                 flags=display=auto
 auto                   vfat     /devices/platform/mt_usb*                           flags=display=auto
@@ -31,4 +33,4 @@ auto                   vfat     /devices/platform/soc/11201000.usb*             
 /tee2                  emmc     /dev/block/platform/bootdevice/by-name/tee2         flags=backup=1
 /kb                    emmc     /dev/block/platform/bootdevice/by-name/kb           flags=backup=1
 /dkb                   emmc     /dev/block/platform/bootdevice/by-name/dkb          flags=backup=1
-/metadata              emmc     /dev/block/platform/bootdevice/by-name/metadata     flags=display=metadata;length=16384;backup=1;mounttwrp=1
+/metadata              emmc     /dev/block/platform/bootdevice/by-name/metadata     flags=display=metadata;backup=1;mounttwrp=1
