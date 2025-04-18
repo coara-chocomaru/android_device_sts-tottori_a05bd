@@ -3,12 +3,7 @@
 /vendor                ext4     /dev/block/platform/bootdevice/by-name/vendor       flags=ignoreblkid
 /vendor_image          emmc     /dev/block/platform/bootdevice/by-name/vendor       flags=display=vendor_image
 /dtbo                  emmc     /dev/block/platform/bootdevice/by-name/dtbo         flags=backup=1
-/data                  ext4    /dev/block/platform/bootdevice/by-name/userdata    \
-flags=display=userdata;ignoreblkid;wait;check;quota;resize;reservedsize=128m;\
-fileencryption=ice;\
-encryptable=/dev/block/platform/bootdevice/by-name/metadata;\
-encryptable=footer;forcefdeorfbe;\
-fsflags=noatime,nosuid,nodev,noauto_da_alloc,discard
+/data                  ext4     /dev/block/platform/bootdevice/by-name/userdata     nosuid,nodev,barrier=1,data=ordered,encryptable=footer;length=-16384;fileencryption=ice:aes-256-cts    0 0
 /cache                 ext4     /dev/block/platform/bootdevice/by-name/cache        flags=backup=1
 /factory               ext4     /dev/block/platform/bootdevice/by-name/factory      flags=display=factory
 auto                   vfat     /devices/platform/soc/11230000.mmc*                 flags=display=auto
