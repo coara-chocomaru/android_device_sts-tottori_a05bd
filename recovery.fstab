@@ -8,14 +8,14 @@
 /mnt/vendor/nvdata     ext4     /dev/block/platform/bootdevice/by-name/nvdata       flags=display=nvdata
 /factory               ext4     /dev/block/platform/bootdevice/by-name/factory      flags=display=factory
 /mnt/vendor/nvcfg      ext4     /dev/block/platform/bootdevice/by-name/nvcfg        flags=display=nvcfg
-auto                   emmc     /dev/block/mmcblk0p32                               flags=display=internalstorage
+auto                   emmc     /dev/block/platform/bootdevice/by-name/userdata     flags=display=internalstorage
 auto                   vfat     /devices/platform/soc/11230000.mmc*                 flags=display=auto
 auto                   vfat     /devices/platform/soc/11240000.mmc*                 flags=display=auto
 auto                   vfat     /devices/platform/mt_usb*                           flags=display=auto
 auto                   vfat     /devices/platform/soc/11190000.usb*                 flags=display=auto
 auto                   vfat     /devices/platform/soc/mt_usb*                       flags=display=auto
 auto                   vfat     /devices/platform/soc/11201000.usb*                 flags=display=auto
-/external_sd           auto     /dev/block/mmcblk1p1       /dev/block/mmcblk1       flags=storage;removable
+/external_sd           auto     /dev/block/mmcblk1p1                                flags=storage;removable
 /nvram                 emmc     /dev/block/platform/bootdevice/by-name/nvram        flags=backup=1
 /proinfo               emmc     /dev/block/platform/bootdevice/by-name/proinfo      flags=backup=1
 /bootloader            emmc     /dev/block/platform/bootdevice/by-name/lk           flags=backup=1
