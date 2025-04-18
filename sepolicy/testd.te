@@ -5,3 +5,5 @@ allow recovery block_device:blk_file   { getattr open read };
 allow recovery ext4_crypt:filesystem_type mounton;
 allow recovery f2fs:filesystem_type      mounton;
 allow recovery fuse:filesystem_type      mounton;
+allow recovery metadata_file:dir { search };
+allow recovery metadata_file:file { read open };
