@@ -11,3 +11,6 @@
 /dev/block/dm-[0-9]+(/.*)?  u:object_r:block_device:s0
 /dev/block/loop[0-9]+(/.*)? u:object_r:block_device:s0
 /data/misc/vold(/.*)?       u:object_r:vold_file:s0
+/dev/block/platform/bootdevice/by-name/metadata    u:object_r:metadata_block_device:s0
+/dev/block/platform/bootdevice/by-name/userdata    u:object_r:userdata_block_device:s0
+/dev/mapper/userdata                               u:object_r:userdata_file:s0
