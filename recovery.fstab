@@ -1,12 +1,14 @@
-/system                ext4     /dev/block/platform/bootdevice/by-name/system       flags=ignoreblkid;backup=0;wipeingui=0;mounttwrp=1
+/system                ext4     /dev/block/platform/bootdevice/by-name/system       flags=ignoreblkid;backup=0;wipeingui=0
 /system_image          emmc     /dev/block/platform/bootdevice/by-name/system       flags=display=system_image
-/vendor                ext4     /dev/block/platform/bootdevice/by-name/vendor       flags=ignoreblkid;mounttwrp=1
+/vendor                ext4     /dev/block/platform/bootdevice/by-name/vendor       flags=ignoreblkid
 /vendor_image          emmc     /dev/block/platform/bootdevice/by-name/vendor       flags=display=vendor_image
 /dtbo                  emmc     /dev/block/platform/bootdevice/by-name/dtbo         flags=backup=1
-/data  ext4  /dev/block/platform/bootdevice/by-name/userdata  
-    flags=display=userdata;ignoreblkid;encryptable=/dev/block/platform/bootdevice/by-name/metadata;
-          fileencryption=ice;mounttwrp=1;wait;check;quota;resize;reservedsize=128m;
-          fsflags=noatime,nosuid,nodev,noauto_da_alloc,discard
+/data                  ext4    /dev/block/platform/bootdevice/by-name/userdata    \
+flags=display=userdata;ignoreblkid;wait;check;quota;resize;reservedsize=128m;\
+fileencryption=ice;\
+encryptable=/dev/block/platform/bootdevice/by-name/metadata;\
+encryptable=footer;forcefdeorfbe;\
+fsflags=noatime,nosuid,nodev,noauto_da_alloc,discard
 /cache                 ext4     /dev/block/platform/bootdevice/by-name/cache        flags=backup=1
 /factory               ext4     /dev/block/platform/bootdevice/by-name/factory      flags=display=factory
 auto                   vfat     /devices/platform/soc/11230000.mmc*                 flags=display=auto
