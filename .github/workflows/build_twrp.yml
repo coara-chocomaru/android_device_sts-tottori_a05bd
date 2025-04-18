@@ -36,14 +36,11 @@ jobs:
         echo "Build Target: ${{ env.BUILD_TARGET }}.img"
         echo "::endgroup::"
  
-    # You might want to Checkout your repo first, but not mandatory
     - name: Check Out
       uses: actions/checkout@v3
 
-    # Cleanup The Actions Workspace Using Custom Composite Run Actions
     - name: Cleanup
       uses: rokibhasansagar/slimhub_actions@main
-      # That's it! Now use your normal steps
 
     - name: Prepare the environment
       run: |
@@ -104,13 +101,11 @@ jobs:
       with:
         swap-size-gb: 12
 
-    - name: Switch to Python2
+    - name: Switch to Python 2
       run: |
-        sudo apt -y install python
-        sudo rm -rf /usr/bin/python
-        sudo ln -s /usr/bin/python2 /usr/bin/python
-        # sudo ln -s /usr/bin/python3 /usr/bin/python3
-      continue-on-error: true
+        sudo apt -y install python2
+        sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+        python --version
 
     - name: Building recovery
       run: |
