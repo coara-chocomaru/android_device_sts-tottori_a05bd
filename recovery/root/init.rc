@@ -69,7 +69,12 @@ on post-fs-data
     restorecon /data
     start vold_decrypt
     installkey /data
-
+    mount ext4 /dev/block/by-name/system /system ro
+    restorecon /system/bin/vdc
+    restorecon /system/bin/vold
+    exec u:r:init:s0 -- /system/bin/vdc cryptfs checkpw   ${user_password}
+    exec u:r:init:s0 -- /system/bin/vdc cryptfs enablefilecrypto \
+         encryptable=footer;length=-16384;fileencryption=ice:aes-256-cts
     mount ext4 /dev/block/by-name/userdata /data
     mount auto  /data/media   /sdcard
 
