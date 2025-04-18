@@ -1,6 +1,6 @@
 /system                ext4     /dev/block/platform/bootdevice/by-name/system       flags=ignoreblkid;backup=0;wipeingui=0;mounttwrp=1
 /system_image          emmc     /dev/block/platform/bootdevice/by-name/system       flags=display=system_image
-/vendor                ext4     /dev/block/platform/bootdevice/by-name/vendor       flags=ignoreblkid
+/vendor                ext4     /dev/block/platform/bootdevice/by-name/vendor       flags=ignoreblkid;mounttwrp=1
 /vendor_image          emmc     /dev/block/platform/bootdevice/by-name/vendor       flags=display=vendor_image
 /dtbo                  emmc     /dev/block/platform/bootdevice/by-name/dtbo         flags=backup=1
 /data  ext4  /dev/block/platform/bootdevice/by-name/userdata  
