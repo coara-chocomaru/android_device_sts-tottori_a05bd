@@ -53,18 +53,6 @@ on fs
     mkdir /dev/usb-ffs 0770 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
-    mount ext4 /dev/block/by-name/system  /system
-    restorecon /system/bin/vdc
-    restorecon /system/bin/vold
-    exec u:r:init:s0 -- /system/bin/vdc cryptfs checkpw   ${user_password}
-    exec u:r:init:s0 -- /system/bin/vdc cryptfs enablefilecrypto \
-    encryptable=footer;length=-16384;fileencryption=ice:aes-256-cts
-    mount ext4 /dev/block/by-name/userdata /data
-    mount auto  /data/media   /sdcard
-    chown system system /data
-    chmod 0771 /data
-    restorecon /data
-
 on boot
     ifup lo
     hostname localhost
