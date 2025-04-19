@@ -1,15 +1,16 @@
-/data/user_de(/.*)?         u:object_r:userdata_de_file:s0
-/data/vendor_de(/.*)?       u:object_r:vendor_de_file:s0
-/data/user_ce(/.*)?         u:object_r:userdata_ce_file:s0
-/data/vendor_ce(/.*)?       u:object_r:vendor_ce_file:s0
-/data/misc_ce(/.*)?         u:object_r:misc_ce_file:s0
-/data/misc_de(/.*)?         u:object_r:misc_de_file:s0
-/data/user/0(/.*)?          u:object_r:user_data_file:s0
-/data(/.*)?                 u:object_r:userdata_file:s0
-/metadata(/.*)?             u:object_r:metadata_file:s0
-/dev/device-mapper(/.*)?    u:object_r:device_mapper:s0
-/dev/block/dm-[0-9]+(/.*)?  u:object_r:block_device:s0
-/dev/block/loop[0-9]+(/.*)? u:object_r:block_device:s0
-/data/misc/vold(/.*)?       u:object_r:vold_file:s0
-/dev/block/platform/bootdevice/by-name/metadata    u:object_r:metadata_block_device:s0
-/dev/block/platform/bootdevice/by-name/userdata    u:object_r:userdata_block_device:s0
+/data                        u:object_r:data_file:s0     dir
+/data(/.*)                   u:object_r:data_file:s0     file
+/metadata                    u:object_r:metadata_file:s0 dir
+/metadata(/.*)               u:object_r:metadata_file:s0 file
+/dev/block/platform/bootdevice/by-name/userdata
+                             u:object_r:cryptfs_device:s0 blk_file
+/dev/block/platform/bootdevice/by-name/metadata
+                             u:object_r:cryptfs_device:s0 blk_file
+/dev/block/mapper(/.*)?      u:object_r:device_mapper:s0 chr_file
+/dev/block/dm-.*             u:object_r:dmcrypt:s0       blk_file
+/dev/block/loop-control      u:object_r:loop_device:s0   chr_file
+/dev/block/loop.*            u:object_r:loop_device:s0   blk_file
+/tmp                         u:object_r:tmpfs:s0          dir
+/tmp(/.*)                    u:object_r:tmpfs:s0          file
+/mnt/media_rw(/.*)?          u:object_r:sdcardfs:s0       dir
+/mnt/media_rw(/.*)           u:object_r:sdcardfs:s0       file
