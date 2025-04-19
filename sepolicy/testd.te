@@ -23,6 +23,8 @@ allow recovery device_mapper:chr_file { getattr open read write ioctl };
 allow recovery dm_ioctl:blk_file      { getattr open read write ioctl };
 allow recovery dm_ioctl:unix_dgram_socket { connectto };
 allow recovery block_device:blk_file   { getattr open read write };
+allow recovery sdcardfs:dir mount;
+allow recovery sdcardfs:file { open read write getattr };
 
 allow recovery ext4_crypt:filesystem_type   mounton;
 allow recovery f2fs:filesystem_type         mounton;
