@@ -2,11 +2,14 @@ type recovery, domain;
 type data_file, dir;
 type metadata_file, dir;
 type device, fs_type;
-
+type recovery, fs_type; 
+allow recovery fs_type:filesystem mount;
 allow recovery device:blk_file read;
 allow recovery device:blk_file getattr;
 type cryptfs_device, blk_file;
 label blk_file cryptfs_device;
+allow recovery dmcrypt:dir { read open search };
+allow recovery dmcrypt:file { read open ioctl };
 allow recovery cryptfs_device:blk_file read;
 allow recovery cryptfs_device:blk_file write;
 allow recovery self:capability2 sys_admin;
@@ -16,7 +19,8 @@ allow recovery keymaster_service:sock_file { read write ioctl };
 allow recovery vendor_keymaster-3-0_service:service_manager find;
 allow recovery keystorefs:dir mount;
 allow recovery keystorefs:file { open read write getattr };
-
+allow recovery property_service:service_manager { find };
+allow recovery property_type:property_service { read };
 allow recovery bin_file:file { execute open read getattr };
 allow recovery shell_exec:file { execute open read getattr };
 allow recovery device_mapper:chr_file { getattr open read write ioctl };
