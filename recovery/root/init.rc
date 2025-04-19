@@ -58,7 +58,9 @@ on fs
     encryptable=footer;length=-16384;fileencryption=ice:aes-256-cts
     mount ext4 /dev/block/by-name/userdata /data
     mount auto  /data/media   /sdcard
-    mount ext4 /dev/block/by-name/vendor  /vendor
+    chown system system /data
+    chmod 0771 /data
+    restorecon /data
 
 on late-init
     trigger early-fs
@@ -71,12 +73,6 @@ on late-init
     trigger boot
 
 on post-fs-data
-    chown system system /data
-    chmod 0771 /data
-    restorecon /data
-    start vold_decrypt
-    installkey /data
-
 service adbd /sbin/adbd --root_seclabel=u:r:su:s0 --device_banner=recovery
     disabled
     socket adbd stream 660 system system
