@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=a05bd
+DEVICE=a05ba
 VENDOR=sts
 
 # Load extract_utils and do some sanity checks
