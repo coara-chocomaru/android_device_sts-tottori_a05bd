@@ -4,8 +4,8 @@
 /vendor                ext4     /dev/block/platform/bootdevice/by-name/vendor       flags=ignoreblkid;first_stage_mount      0 0
 /vendor_image          emmc     /dev/block/platform/bootdevice/by-name/vendor       flags=display=vendor_image
 /dtbo                  emmc     /dev/block/platform/bootdevice/by-name/dtbo         flags=backup=1
-/data                  ext4     /dev/block/platform/bootdevice/by-name/userdata     nosuid,nodev,barrier=1,data=ordered,encryptable=metadata;fileencryption=ice:aes-256-cts;keydirectory=/metadata  0 0
-/data/media            auto     /dev/block/platform/bootdevice/by-name/userdata     nosuid,nodev,defaults
+/data                  ext4     /dev/block/platform/bootdevice/by-name/userdata     flags=encryptable=metadata;first_stage_mount;ignoreblkid        0 0  
+/data/media            auto     /dev/block/platform/bootdevice/by-name/userdata     flags=storage                                                 0 0 
 /cache                 ext4     /dev/block/platform/bootdevice/by-name/cache        flags=backup=1
 /factory               ext4     /dev/block/platform/bootdevice/by-name/factory      flags=display=factory
 auto                   vfat     /devices/platform/soc/11230000.mmc*                 flags=display=auto
@@ -32,4 +32,4 @@ auto                   vfat     /devices/platform/soc/11201000.usb*             
 /tee2                  emmc     /dev/block/platform/bootdevice/by-name/tee2         flags=backup=1
 /kb                    emmc     /dev/block/platform/bootdevice/by-name/kb           flags=backup=1
 /dkb                   emmc     /dev/block/platform/bootdevice/by-name/dkb          flags=backup=1
-/metadata              emmc     /dev/block/platform/bootdevice/by-name/metadata     flags=display=metadata;backup=1;first_stage_mount      0 0
+/metadata              raw      /dev/block/platform/bootdevice/by-name/metadata     flags=first_stage_mount  0 0 
