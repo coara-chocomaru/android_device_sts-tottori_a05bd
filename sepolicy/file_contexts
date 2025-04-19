@@ -7,7 +7,7 @@
 /dev/block/platform/bootdevice/by-name/metadata
                              u:object_r:cryptfs_device:s0 blk_file
 /dev/block/mapper(/.*)?      u:object_r:device_mapper:s0 chr_file
-/dev/block/dm-.*             u:object_r:dmcrypt:s0       blk_file
+/dev/block/dm-[0-9]+         u:object_r:cryptfs_device:s0
 /dev/block/loop-control      u:object_r:loop_device:s0   chr_file
 /dev/block/loop.*            u:object_r:loop_device:s0   blk_file
 /tmp                         u:object_r:tmpfs:s0          dir
