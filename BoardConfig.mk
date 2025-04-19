@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/sts/a05bd
+DEVICE_PATH := device/sts/a05ba
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -26,7 +26,7 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := generic
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := a05bd
+TARGET_BOOTLOADER_BOARD_NAME := a05ba
 TARGET_NO_BOOTLOADER := true
 
 # Display
@@ -44,10 +44,8 @@ BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_SEPARATED_DTBO := true
-TARGET_KERNEL_CONFIG := a05bd_defconfig
-TARGET_KERNEL_SOURCE := kernel/sts/a05bd
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_KERNEL_CONFIG := a05ba_defconfig
+TARGET_KERNEL_SOURCE := kernel/sts/a05ba
 
 
 # Kernel - prebuilt
